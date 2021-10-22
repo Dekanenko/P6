@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <title>Slider</title>
+   <link rel="stylesheet" href="assets/css/layout.css">
+   <link rel="stylesheet" href="assets/css/style.css">
+   <script src="assets/js/script.js"></script>
+   <script>
+    window.onload = function() {
+        let slides = [
+            {
+                title: "League of Graphs",
+                background: "assets/img/slider1.jpg",
+                link: "https://www.leagueofgraphs.com/ru/summoner/ru/RoseBite"
+            }, {
+                title: "True Damage",
+                background: "assets/img/slider2.jpg",
+                link: "https://youtu.be/sVZpHFXcFJw"
+            }, {
+                title: "Pentakill",
+                background: "assets/img/slider3.jpg",
+                link: "https://youtube.com/playlist?list=PLJP5_qSxMbkK9Rwbc7U3hJ2tw70hGTWe_"
+            }
+        ]
+        Slider.initSlider(slides);
+        
+        prev.addEventListener("click", (ev)=>{
+            console.log(ev)
+            Slider.prevSlide()
+        } 
+        )
+        next.addEventListener("click", (ev)=>{
+            console.log(ev)
+            Slider.nextSlide()
+        } 
+        )
+
+        hide.addEventListener('click',(event)=>{
+            var change = document.getElementById("hide");
+            if (change.value != "Show"){
+                slider.style.display = 'none';
+                change.value = "Show";
+            } else {
+                change.value = "Hide";
+                slider.style.display = 'block';
+            }
+        }
+        )
+
+        toggle.addEventListener('click', (event)=>{
+            var change = document.getElementById("toggle");
+            if (event.target.classList.contains('start')){
+                event.target.innerHTML = 'Stop';
+                change.value = "Start";
+                clearInterval(interval)
+            }else {
+                event.target.innerHTML = 'Start';
+                change.value = "Stop";
+                interval = setInterval(()=>{
+                Slider.nextSlide();
+            },1000)
+        }
+        event.target.classList.toggle('start')
+        })
+
+    };
+
+
+
+ </script>
+</head>
+<body>
+<header class="header"><p>Header...</p>
+    <img src="assets/img/logo.jpg" width = 100px>
+</header>
+
+<div class="container">
+   <main class="center column">
+       <article>
+           <h1>Slider</h1>
+           <p></p>
+       </article>
+        <input id="prev" type="button" value="Previous" class="buttons">
+        <input id="next" type="button" value="Next" class="buttons">
+        <input id="toggle" type="button" value="Start" class="buttons">
+        <input id="hide" type="button" value="Hide" class="buttons">
+   </main>
+   <nav class="left column">
+       <h3>Left heading</h3>
+       <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html">Index</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="media.html">Media</a></li>
+        <li><a href="table.html">Table</a></li>
+        <li><a href="canvas.html">Canvas</a></li>
+    </ul>
+   </nav>
+   <div class="right column">
+       <h3>Right heading</h3>
+       <p></p>
+   </div>
+   <div class="push"></div>
+   <div id="slider"></div>
+
+</div>
+<div class="footer-wrapper">
+
+<footer class="footer"><p>Footer...</p>
+    <img src="assets/img/logo.jpg" width = 100px>
+</footer>
+</div>
+</body>
+</html>

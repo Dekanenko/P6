@@ -1,0 +1,30 @@
+.canvas{
+    background: #eee;
+    display: block;
+    margin-bottom: 10px;
+ }
+ 
+ .btn{
+    width: 110px;
+    background-color: #4CAF50; 
+    border: none;
+    color: white;
+    padding: 15px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 5px;
+ }
+ .toolbar {
+    width: 1000px;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    list-style-type: none;
+ }
+ 
+.toolbar>li{
+   margin-left: 20px;
+}
